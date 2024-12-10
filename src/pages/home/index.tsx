@@ -4,13 +4,11 @@ import Home from './Home'
 
 type Props = {}
 
-const HomePage = (props: Props) => {
+const HomePage = ({}: Props) => {
     return (
         <>
             <Header />
-
             <Home />
-
             <Footer />
 
 

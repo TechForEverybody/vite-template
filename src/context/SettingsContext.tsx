@@ -20,18 +20,17 @@ export type SettingStateType = {
 }
 type SettingActionType = {
     type:
-        | 'themeMode'
-        | 'screen'
-        | 'language'
-        | 'themeScheme'
-        | 'handleGlobalLoading'
+    | 'themeMode'
+    | 'screen'
+    | 'language'
+    | 'handleGlobalLoading'
     value:
-        | string
-        | boolean
-        | {
-              loading: boolean
-              message: string
-          }
+    | string
+    | boolean
+    | {
+        loading: boolean
+        message: string
+    }
 }
 
 function getScreenType() {
@@ -93,9 +92,9 @@ function settingsReducer(
 
 export const SettingContext = createContext({
     settings: initialState,
-    changeSettings: (() => {}) as Dispatch<SettingActionType>,
-    toggleTheme: () => {},
-    handleGlobalLoading: (value: boolean, message?: string) => {},
+    changeSettings: (() => { }) as Dispatch<SettingActionType>,
+    toggleTheme: () => { },
+    handleGlobalLoading: (value: boolean, message?: string) => { },
 })
 
 export default function SettingContextProvider(props: {
@@ -212,7 +211,7 @@ function InternetStatus({ status }: { status: boolean }) {
                 {status ? (
                     <Alert severity="success">You are online</Alert>
                 ) : (
-                    <Alert variant="filled"  severity="error">
+                    <Alert variant="filled" severity="error">
                         You are offline
                     </Alert>
                 )}

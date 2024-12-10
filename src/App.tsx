@@ -11,19 +11,19 @@ import Router from './routes/Router'
 function App() {
     return (
         <HelmetProvider>
-            <PreviewContextProvider>
-                <SettingsContextProvider>
-                    <UserContextProvider>
-                        <ConfiguredThemeProvider>
-                            <StyledEngineProvider injectFirst>
+            <SettingsContextProvider>
+                <UserContextProvider>
+                    <ConfiguredThemeProvider>
+                        <StyledEngineProvider injectFirst>
+                            <PreviewContextProvider>
                                 <BrowserRouter>
                                     <Router />
                                 </BrowserRouter>
-                            </StyledEngineProvider>
-                        </ConfiguredThemeProvider>
-                    </UserContextProvider>
-                </SettingsContextProvider>
-            </PreviewContextProvider>
+                            </PreviewContextProvider>
+                        </StyledEngineProvider>
+                    </ConfiguredThemeProvider>
+                </UserContextProvider>
+            </SettingsContextProvider>
         </HelmetProvider>
     )
 }

@@ -1,8 +1,14 @@
-import React, { useEffect } from 'react'
-
+import React, { useEffect, useState } from 'react'
+import WebsiteLoader from '../components/loaders/WebsiteLoader'
 export default function PreviewContextProvider(props: {
     children: React.ReactNode
 }) {
-    useEffect(() => {}, [])
+    const [isLoading, setIsLoading] = useState(false)
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 5000)
+    }, [])
+    if (isLoading) return <WebsiteLoader message="Loading..." />
     return <div>{props.children}</div>
 }
