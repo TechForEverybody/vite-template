@@ -10,7 +10,7 @@
         "preview": "vite preview",
         "format-code": "npx prettier --write .",
         "build-tailwind": "npx tailwindcss -i ./src/index.css -o ./src/tailwind.css",
-        "git-pre-commit": "eslint . && npm run build-tailwind &&npx prettier --write . && git add . ",
+        "git-pre-commit": "eslint . && npm run build-tailwind &&npx prettier --write . && npm run build && git add . ",
         "git-commit": "npm run git-pre-commit && git commit"
     },
     "dependencies": {

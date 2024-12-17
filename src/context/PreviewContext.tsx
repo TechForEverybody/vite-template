@@ -9,6 +9,6 @@ export default function PreviewContextProvider(props: {
             setIsLoading(false)
         }, 5000)
     }, [])
-    if (isLoading) return <WebsiteLoader message="Loading..." />
+    if (isLoading) return <WebsiteLoader />
     return <div>{props.children}</div>
 }

@@ -90,7 +90,10 @@ export const SettingContext = createContext({
     settings: initialState,
     changeSettings: (() => {}) as Dispatch<SettingActionType>,
     toggleTheme: () => {},
-    handleGlobalLoading: (value: boolean, message?: string) => {},
+    handleGlobalLoading: ((_, __) => {}) as (
+        value: boolean,
+        message?: string
+    ) => void,
 })
 
 export default function SettingContextProvider(props: {
@@ -163,9 +166,7 @@ export default function SettingContextProvider(props: {
                     zIndex: 99999999999,
                 }}
             />
-            {settings.globalLoading.loading && (
-                <GlobalLoader message={settings.globalLoading.message} />
-            )}
+            {settings.globalLoading.loading && <GlobalLoader />}
             {
                 <InternetStatus
                     key={internetStatus ? '1' : '0'}
@@ -216,7 +217,7 @@ function InternetStatus({ status }: { status: boolean }) {
     )
 }
 
-function GlobalLoader({ message }: { message: string }) {
+function GlobalLoader() {
     return (
         <div
             style={{
