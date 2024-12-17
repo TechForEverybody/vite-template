@@ -46,7 +46,7 @@ export default function HorizontalTabs(props: HorizontalTabsProps) {
     const [value, setValue] = React.useState(0)
     const theme = useTheme()
 
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    const handleChange = (_: React.SyntheticEvent, newValue: number) => {
         setValue(newValue)
     }
     return (

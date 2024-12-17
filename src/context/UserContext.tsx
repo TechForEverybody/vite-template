@@ -113,7 +113,7 @@ export default function UserContextProvider(props: {
 
     async function checkUser() {
         const local = getLocalUserData()
-        if (!!local) {
+        if (local) {
             changeUser({ type: 'login', value: { userData: local } })
         } else {
             changeUser({ type: 'logout', value: { userData: null } })

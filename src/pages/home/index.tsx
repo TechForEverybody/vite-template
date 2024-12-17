@@ -2,17 +2,12 @@ import Footer from '@/layouts/main/Footer'
 import Header from '@/layouts/main/Header'
 import Home from './Home'
 
-type Props = {}
-
-const HomePage = ({}: Props) => {
+const HomePage = () => {
     return (
         <>
             <Header />
             <Home />
             <Footer />
-
-
-
         </>
     )
 }

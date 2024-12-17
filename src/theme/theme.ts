@@ -56,8 +56,8 @@ export const CustomTheme: AppTheme = {
         typography: {
             fontFamily: 'Rubik',
             button: {
-                textTransform: "none"
-            }
+                textTransform: 'none',
+            },
         },
     },
     light: {
@@ -101,8 +101,8 @@ export const CustomTheme: AppTheme = {
         typography: {
             fontFamily: 'Rubik',
             button: {
-                textTransform: "none"
-            }
+                textTransform: 'none',
+            },
         },
     },
 }

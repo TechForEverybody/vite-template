@@ -1,7 +1,7 @@
 {
     "name": "vite-template",
     "private": true,
-    "version": "0.0.0",
+    "version": "1.0.0",
     "type": "module",
     "scripts": {
         "local": "vite",
@@ -9,7 +9,9 @@
         "lint": "eslint .",
         "preview": "vite preview",
         "format-code": "npx prettier --write .",
-        "build-tailwind": "npx tailwindcss -i ./src/index.css -o ./src/tailwind.css"
+        "build-tailwind": "npx tailwindcss -i ./src/index.css -o ./src/tailwind.css",
+        "git-pre-commit": "eslint . && npm run build-tailwind &&npx prettier --write . && git add . ",
+        "git-commit": "npm run git-pre-commit && git commit"
     },
     "dependencies": {
         "@emotion/react": "^11.13.5",

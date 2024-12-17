@@ -19,22 +19,18 @@ export type SettingStateType = {
     }
 }
 type SettingActionType = {
-    type:
-    | 'themeMode'
-    | 'screen'
-    | 'language'
-    | 'handleGlobalLoading'
+    type: 'themeMode' | 'screen' | 'language' | 'handleGlobalLoading'
     value:
-    | string
-    | boolean
-    | {
-        loading: boolean
-        message: string
-    }
+        | string
+        | boolean
+        | {
+              loading: boolean
+              message: string
+          }
 }
 
 function getScreenType() {
-    if (!!window) {
+    if (window) {
         if (window.innerWidth > 1100) return 'desktop'
         if (window.innerWidth > 768) return 'tab'
         if (window.innerWidth > 300) return 'mobile'
@@ -60,7 +56,7 @@ function settingsReducer(
         case 'themeMode':
             setSettingsData({
                 ...currentSettingsData,
-                themeMode: action.value as typeof state.themeMode,
+                themeMode: action.value as 'light' | 'dark',
             })
             return {
                 ...state,
@@ -79,11 +75,11 @@ function settingsReducer(
                 },
             }
         case 'language':
-            const currentSettings = getSettingsData() || defaultSettingsData
-            setSettingsData({
-                ...currentSettings,
-                language: action.value as string,
-            })
+            if (currentSettingsData)
+                setSettingsData({
+                    ...currentSettingsData,
+                    language: action.value as string,
+                })
             return { ...state, language: action.value as string }
         default:
             return state
@@ -92,9 +88,9 @@ function settingsReducer(
 
 export const SettingContext = createContext({
     settings: initialState,
-    changeSettings: (() => { }) as Dispatch<SettingActionType>,
-    toggleTheme: () => { },
-    handleGlobalLoading: (value: boolean, message?: string) => { },
+    changeSettings: (() => {}) as Dispatch<SettingActionType>,
+    toggleTheme: () => {},
+    handleGlobalLoading: (value: boolean, message?: string) => {},
 })
 
 export default function SettingContextProvider(props: {
@@ -238,7 +234,7 @@ function GlobalLoader({ message }: { message: string }) {
                 height: '100vh',
             }}
         >
-            <WebsiteLoader message={message} />
+            <WebsiteLoader />
         </div>
     )
 }
