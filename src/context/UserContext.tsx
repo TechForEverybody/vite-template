@@ -4,7 +4,7 @@ import {
     removeLocalUserData,
     setLocalUserData,
 } from '../services/LocalStorage/LocalAuthentication'
-import MainConfigs from '@/config.environment'
+import MainConfigs from '@/react.config'
 import { APIResponse } from '@/types/Response'
 
 export type userStateType = {
