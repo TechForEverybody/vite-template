@@ -11,7 +11,7 @@
         "format-code": "npx prettier --write .",
         "build": "tsc -b && graphql-codegen && vite build",
         "build-tailwind": "npx tailwindcss -i ./src/index.css -o ./src/tailwind.css",
-        "git-pre-commit": "eslint . && npm run build-tailwind &&npx prettier --write . && npm run build && git add . ",
+        "git-pre-commit": "eslint . && npm run build-tailwind && npm run build  && npx prettier --write . && git add . ",
         "git-commit": "npm run git-pre-commit && git commit",
         "generate": "graphql-codegen"
     },
@@ -20,6 +20,7 @@
         "@emotion/react": "^11.13.5",
         "@emotion/styled": "^11.13.5",
         "@graphql-codegen/typescript-operations": "^4.4.0",
+        "@graphql-codegen/typescript-react-apollo": "^4.3.2",
         "@lottiefiles/dotlottie-react": "^0.11.0",
         "@mui/icons-material": "^6.1.10",
         "@mui/material": "^6.1.10",

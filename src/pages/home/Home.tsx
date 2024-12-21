@@ -1,7 +1,13 @@
+import { useGetUsersQuery } from '@/services/graphql/generated'
 import { Box, Button, Container, Typography } from '@mui/material'
 import { Linkedin, Github } from 'lucide-react'
+import { useEffect } from 'react'
 
 function Home() {
+    const { data } = useGetUsersQuery()
+    useEffect(() => {
+        console.log(data)
+    }, [data])
     return (
         <Box
             sx={{

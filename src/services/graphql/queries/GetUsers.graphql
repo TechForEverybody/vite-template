@@ -1,6 +1,6 @@
 query GetUsers {
     getUsers {
         id
-        firstName
+        name
     }
 }

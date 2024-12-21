@@ -49,7 +49,7 @@ function userReducer(
         token: action.value.userData?.token as string,
         avatar: action.value.userData?.avatar as string,
     }
-    console.log(user)
+    // console.log(user)
     switch (action.type) {
         case 'login':
             setLocalUserData(user)
@@ -96,7 +96,7 @@ export async function getUserDataAfterVerification(userID: string) {
         )
         if (response.status === 200) {
             const data = (await response.json()) as APIResponse
-            console.log(data)
+            // console.log(data)
             return data.data
         }
         return false
@@ -121,7 +121,7 @@ export default function UserContextProvider(props: {
         }
     }
     useEffect(() => {
-        console.log(window.location.href)
+        // console.log(window.location.href)
         if (MainConfigs.NODE_ENVIRONMENT === 'development') {
             changeUser({
                 type: 'login',
