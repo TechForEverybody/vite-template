@@ -16,7 +16,15 @@ function Header() {
                 }}
             >
                 <Box>
-                    <Typography variant="h4">TechForEverybody</Typography>
+                    <Typography variant="h4">
+                        <img
+                            src="/logo/logo.png"
+                            style={{
+                                maxWidth: '250px',
+                            }}
+                            alt=""
+                        />
+                    </Typography>
                 </Box>
                 <Box></Box>
                 <Box>

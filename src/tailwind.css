@@ -639,8 +639,16 @@ body {
     z-index: 10;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
 .flex {
     display: flex;
+}
+
+.grid {
+    display: grid;
 }
 
 .hidden {
