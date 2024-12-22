@@ -6,7 +6,7 @@ export type AuthUserDataType = {
         phone?: string
     }
     role: string
-    token: string
+    authToken: string
     avatar: string
 }
 

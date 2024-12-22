@@ -1,7 +1,9 @@
 import { Dispatch, createContext, useEffect, useReducer } from 'react'
 import {
     getLocalUserData,
+    removeLocalTokenData,
     removeLocalUserData,
+    setLocalTokenData,
     setLocalUserData,
 } from '../services/LocalStorage/LocalAuthentication'
 import MainConfigs from '@/react.config'
@@ -18,7 +20,7 @@ export type userStateType = {
         }
         avatar?: string
         role?: string
-        token?: string
+        authToken?: string
     } | null
 }
 
@@ -46,13 +48,14 @@ function userReducer(
             phone: action.value.userData?.contact?.phone,
         },
         role: action.value.userData?.role as string,
-        token: action.value.userData?.token as string,
+        authToken: action.value.userData?.authToken as string,
         avatar: action.value.userData?.avatar as string,
     }
     // console.log(user)
     switch (action.type) {
         case 'login':
             setLocalUserData(user)
+            setLocalTokenData(user.authToken)
             return {
                 ...state,
                 isLogin: true,
@@ -60,6 +63,7 @@ function userReducer(
             }
         case 'logout':
             removeLocalUserData()
+            removeLocalTokenData()
             return {
                 ...state,
                 isLogin: false,
@@ -67,6 +71,7 @@ function userReducer(
             }
         case 'update':
             setLocalUserData(user)
+            setLocalTokenData(user.authToken)
             return {
                 ...state,
                 isLogin: true,
@@ -135,7 +140,7 @@ export default function UserContextProvider(props: {
                         },
                         role: 'Teacher',
                         avatar: '',
-                        token: '',
+                        authToken: 'sjhdflsj',
                     },
                 },
             })

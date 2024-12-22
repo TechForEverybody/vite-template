@@ -1,9 +1,21 @@
 import React from 'react'
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import {
+    ApolloClient,
+    InMemoryCache,
+    ApolloProvider,
+    createHttpLink,
+} from '@apollo/client'
 import MainConfigs from '@/react.config'
+import { getLocalTokenData } from '@/services/LocalStorage/LocalAuthentication'
+
+const link = createHttpLink({
+    uri: MainConfigs.BackendConfigs.url + '/graphql',
+    headers: {
+        authorization: `${getLocalTokenData()}`,
+    },
+})
 
 const client = new ApolloClient({
-    uri: MainConfigs.BackendConfigs.url + '/graphql',
     cache: new InMemoryCache(),
     defaultOptions: {
         query: {
@@ -16,6 +28,7 @@ const client = new ApolloClient({
             errorPolicy: 'all',
         },
     },
+    link: link,
 })
 type Props = {
     children: React.ReactNode

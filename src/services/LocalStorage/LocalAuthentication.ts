@@ -16,3 +16,14 @@ export function setLocalUserData(userData: AuthUserDataType): void {
 export function removeLocalUserData(): void {
     localStorage.removeItem('userData')
 }
+
+export function setLocalTokenData(authToken: string): void {
+    localStorage.setItem('authToken', authToken)
+}
+export function getLocalTokenData(): string | null {
+    return localStorage.getItem('authToken')
+}
+
+export function removeLocalTokenData(): void {
+    localStorage.removeItem('authToken')
+}
