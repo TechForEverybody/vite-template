@@ -21,6 +21,11 @@ const MainConfigs = {
         graphql: BackendURL + '/graphql',
         subscriptions: WebSocketURL + '/graphql',
     },
+    services: {
+        syncfusion: {
+            KEY: 'Ngo9BigBOggjHTQxAR8/V1NMaF5cXmBCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWH1ccnRcR2ZfU011XUQ=',
+        },
+    },
 }
 
 export default MainConfigs

@@ -8,6 +8,9 @@ import SettingsContextProvider from './context/SettingsContext'
 import PreviewContextProvider from './context/PreviewContext'
 import ApolloContextProvider from './context/ApolloContext'
 import Router from './routes/Router'
+import { registerLicense } from '@syncfusion/ej2-base'
+import MainConfigs from './react.config'
+registerLicense(MainConfigs.services.syncfusion.KEY)
 
 function App() {
     return (
