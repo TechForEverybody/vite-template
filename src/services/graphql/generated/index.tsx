@@ -52,6 +52,10 @@ export type Query = {
     getUsers: User
 }
 
+export type Subscription = {
+    userCreated: User
+}
+
 export type User = {
     email?: Maybe<Scalars['String']['output']>
     firstName?: Maybe<Scalars['String']['output']>
@@ -74,6 +78,10 @@ export type CreateUserMutation = { createUser: { email?: string | null } }
 export type GetUsersQueryVariables = Exact<{ [key: string]: never }>
 
 export type GetUsersQuery = { getUsers: { id: string; name?: string | null } }
+
+export type SubscriptionSubscriptionVariables = Exact<{ [key: string]: never }>
+
+export type SubscriptionSubscription = { userCreated: { name?: string | null } }
 
 export const CreateUserDocument = gql`
     mutation CreateUser($data: CreateUserInput!) {
@@ -170,3 +178,27 @@ export type GetUsersQueryResult = ApolloReactCommon.QueryResult<
 export function refetchGetUsersQuery(variables?: GetUsersQueryVariables) {
     return { query: GetUsersDocument, variables: variables }
 }
+export const SubscriptionDocument = gql`
+    subscription Subscription {
+        userCreated {
+            name
+        }
+    }
+`
+export function useSubscriptionSubscription(
+    baseOptions?: ApolloReactHooks.SubscriptionHookOptions<
+        SubscriptionSubscription,
+        SubscriptionSubscriptionVariables
+    >
+) {
+    const options = { ...defaultOptions, ...baseOptions }
+    return ApolloReactHooks.useSubscription<
+        SubscriptionSubscription,
+        SubscriptionSubscriptionVariables
+    >(SubscriptionDocument, options)
+}
+export type SubscriptionSubscriptionHookResult = ReturnType<
+    typeof useSubscriptionSubscription
+>
+export type SubscriptionSubscriptionResult =
+    ApolloReactCommon.SubscriptionResult<SubscriptionSubscription>
