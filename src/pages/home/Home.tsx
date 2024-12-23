@@ -1,23 +1,23 @@
 import { SettingContext } from '@/context/SettingsContext'
-// import {
-//     useGetUsersQuery,
-//     useSubscriptionSubscription,
-// } from '@/services/graphql/generated'
+import {
+    useGetUsersQuery,
+    useSubscriptionSubscription,
+} from '@/services/graphql/generated'
 import { Box, Button, Container, Typography } from '@mui/material'
 import { Linkedin, Github } from 'lucide-react'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { TypeAnimation } from 'react-type-animation'
 
 function Home() {
     const { settings } = useContext(SettingContext)
-    // const { data } = useGetUsersQuery()
-    // const { data: subscriptionData } = useSubscriptionSubscription()
-    // useEffect(() => {
-    //     console.log(data)
-    // }, [data])
-    // useEffect(() => {
-    //     console.log(subscriptionData)
-    // }, [subscriptionData])
+    const { data } = useGetUsersQuery()
+    const { data: subscriptionData } = useSubscriptionSubscription()
+    useEffect(() => {
+        console.log(data)
+    }, [data])
+    useEffect(() => {
+        console.log(subscriptionData)
+    }, [subscriptionData])
     return (
         <Box
             sx={{
