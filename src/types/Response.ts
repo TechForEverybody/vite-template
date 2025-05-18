@@ -1,4 +1,4 @@
-export type APIResponse = {
+export type ResponseData = {
     success: boolean
     message: string
     data: any

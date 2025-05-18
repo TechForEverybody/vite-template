@@ -1,15 +1,11 @@
-import Footer from '@/layouts/main/Footer'
-import Header from '@/layouts/main/Header'
-import Home from './Home'
+import React from 'react'
 
-const HomePage = () => {
-    return (
-        <>
-            <Header />
-            <Home />
-            <Footer />
-        </>
-    )
+type Props = {}
+
+function index({}: Props) {
+  return (
+    <div>index</div>
+  )
 }
 
-export default HomePage
+export default index
